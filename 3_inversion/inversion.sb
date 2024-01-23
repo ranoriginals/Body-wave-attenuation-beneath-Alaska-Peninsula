@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#SBATCH --job-name AACSE_Data  #Job name
+#SBATCH --time=8:00:00         #Estimated running time
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=20
+#SBATCH --cpus-per-task=1
+#SBATCH --error=error.%j.log
+#SBATCH --output=out.%j.log
+
+
+# srun python mkgsfl.py
+srun python main.py 
+scontrol show job $SLURM_JOB_ID
